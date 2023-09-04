@@ -1,19 +1,19 @@
 Exercícios das Aulas
 ===================================
 
-Este repositrio contém todos os exercicios e códigos fonte demonstrados durante as aulas de programação Kotlin.
+Este repositorio contém todos os exercicios e códigos fonte demonstrados durante as aulas de programação Kotlin e também as aulas usando o Android Studio.
 
 
 Pré-requisitos
 --------------
 - Kotlin 1.0 ou mais novo
 - Java JDK 8
-- Intellij IDEA
+- Android Studio
 
 
 Começando
 ---------------
-Este exemplo usa o sistema de compilação Gradle. Para compilar este projeto, use o comando "gradle build" ou utilize "Project Import" no Intellij.
+Este exemplo usa o sistema de compilação Gradle. Para compilar este projeto, use o comando "gradle build" ou utilize "Project Import" no Intellij. Ou, caso preferir, os exemplos de Kotlin podem ser executados diretamente online na plataforma https://play.kotlinlang.org/
 
 
 Comunidade
@@ -21,7 +21,6 @@ Comunidade
 
 Esse é o nosso espaço para conversarmos, nos conhecermos e tirarmos dúvidas. Suporte e perguntas também são aqui. Isso é para fortalecer e ter um único espaço de interação onde todos podem se encontrar.
 
-- https://www.udemy.com/curso-kotlin-android/learn/v4/questions
 
 Sugestões de correções do projeto são muito bem vindas, devem ser apresentadas efetuando um fork do projeto e efetuando um pull request através do Github.
 
