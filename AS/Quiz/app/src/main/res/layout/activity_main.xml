@@ -25,7 +25,10 @@
         android:id="@+id/questionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
         android:layout_marginTop="160dp"
+        android:layout_marginEnd="24dp"
+        app:flow_horizontalAlign="center"
         android:text="@string/question_orca"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
@@ -48,10 +51,23 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
         android:text="Próximo"
+        app:icon="@drawable/arrow_right"
+        app:iconGravity="end"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.88"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnTrue" />
+
+    <Button
+        android:id="@+id/btnCheat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Cheat!"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.764"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnNextButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

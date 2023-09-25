@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Aluno/AndroidKotlin/AS/Quiz/app/src/main/res/drawable/arrow_right.xml" value="0.276" />
+        <entry key="..\:/Users/Aluno/AndroidKotlin/AS/Quiz/app/src/main/res/layout/activity_cheat.xml" value="0.2713541666666667" />
+        <entry key="..\:/Users/Aluno/AndroidKotlin/AS/Quiz/app/src/main/res/layout/activity_main.xml" value="0.5" />
         <entry key="..\:/Users/Aluno/AndroidStudioProjects/Quiz/app/src/main/res/layout/activity_main.xml" value="0.5" />
       </map>
     </option>
