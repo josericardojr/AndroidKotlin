@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="question_orca">Orcas não são baleias, mas sim uma espécie de golfinho.</string>
+    <string name="question_pe">A profissão de cheirador de pé realmente existe.</string>
+    <string name="question_espirro">Segurar um espirro pode até mesmo causar o rompimento de um vaso sanguíneo.</string>
+    <string name="question_dente">Antigamente, costumava-se escovar os dentes com urina.</string>
+    <string name="correct_answer">Resposta correta!</string>
+    <string name="wrong_answer">Resposta errada!</string>
+</resources>
