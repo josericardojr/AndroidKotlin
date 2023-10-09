@@ -1,5 +1,6 @@
 package com.example.quiz
 
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
@@ -8,6 +9,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 
 class MainActivity : AppCompatActivity() {
 
@@ -30,6 +32,17 @@ class MainActivity : AppCompatActivity() {
     private lateinit var questionView : TextView
     // Questao atual
     private var currentQuestion = 0
+    // Trapaceou?
+    private var cheated : Boolean = false
+
+    // Chamada da activity cheat com resultado da interacao
+    private val cheatLaucher = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()
+    ){ result ->
+        if (result.resultCode == Activity.RESULT_OK){
+            cheated = result.data?.getBooleanExtra(SHOWN_ANSWER, false) ?: false
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,7 +74,8 @@ class MainActivity : AppCompatActivity() {
         // Tratamento do evento de verificar a resposta correta
         cheatButton.setOnClickListener {
             val intent = Intent(this, CheatActivity::class.java)
-            startActivity(intent)
+            intent.putExtra(ANSWER_KEY, questionBank[currentQuestion].answer)
+            cheatLaucher.launch(intent)
         }
 
         // Atualizar para a primeira questao do banco
@@ -101,15 +115,16 @@ class MainActivity : AppCompatActivity() {
     private fun updateQuestion(){
         val questionTextId = questionBank[currentQuestion].resId
         questionView.setText(questionTextId)
+        cheated = false
     }
 
     private fun checkAnswer(userAnswer : Boolean){
         val correctAnswer = questionBank[currentQuestion].answer
 
-        val messageId = if (userAnswer == correctAnswer){
-            R.string.correct_answer
-        } else {
-            R.string.wrong_answer
+        val messageId = when {
+            cheated -> R.string.cheated
+            userAnswer == correctAnswer -> R.string.correct_answer
+            else -> R.string.wrong_answer
         }
 
         Toast.makeText(this, messageId, Toast.LENGTH_SHORT)

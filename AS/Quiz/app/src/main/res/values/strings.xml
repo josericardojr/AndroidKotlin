@@ -6,4 +6,5 @@
     <string name="question_dente">Antigamente, costumava-se escovar os dentes com urina.</string>
     <string name="correct_answer">Resposta correta!</string>
     <string name="wrong_answer">Resposta errada!</string>
+    <string name="cheated">Você trapaceou!</string>
 </resources>
