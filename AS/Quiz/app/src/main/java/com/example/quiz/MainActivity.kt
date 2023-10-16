@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import java.net.URL
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +29,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nextQuestion: Button
     // Botao de trapaca!
     private lateinit var cheatButton: Button
+    // Botao de abrir pagina da internet
+    private lateinit var btnConsultaInternet : Button
     // Texto que exibe a questao
     private lateinit var questionView : TextView
     // Questao atual
@@ -45,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
@@ -53,6 +57,7 @@ class MainActivity : AppCompatActivity() {
         nextQuestion = findViewById(R.id.btnNextButton)
         questionView = findViewById(R.id.questionTextView)
         cheatButton = findViewById(R.id.btnCheat)
+        btnConsultaInternet = findViewById(R.id.btnBrowser)
 
 
         // Tratamento do evento no botão verdadeiro
@@ -76,6 +81,13 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, CheatActivity::class.java)
             intent.putExtra(ANSWER_KEY, questionBank[currentQuestion].answer)
             cheatLaucher.launch(intent)
+        }
+
+        // Tratamento do evento de Abrir página na internet
+        btnConsultaInternet.setOnClickListener {
+            var uriPage = Uri.parse("http://www.google.com")
+            val intent = Intent(Intent.ACTION_VIEW, uriPage)
+            startActivity(intent)
         }
 
         // Atualizar para a primeira questao do banco
@@ -122,7 +134,7 @@ class MainActivity : AppCompatActivity() {
         val correctAnswer = questionBank[currentQuestion].answer
 
         val messageId = when {
-            cheated -> R.string.cheated
+            cheated -> R.string.correct_answer
             userAnswer == correctAnswer -> R.string.correct_answer
             else -> R.string.wrong_answer
         }
