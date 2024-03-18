@@ -26,24 +26,10 @@ class CheatActivity : AppCompatActivity() {
         viewAnswer = findViewById(R.id.viewAnswer)
         btnExibirResposta = findViewById(R.id.btnExibirResposta)
 
-        // Comportamento do Botao
+        // Todo Implementar Comportamento do Botao
         btnExibirResposta.setOnClickListener {
-            val answer = when {
-                answerQuestion -> "Verdadeiro"
-                else -> "Falso"
-            }
 
-            viewAnswer.text = answer
-            setAnswerShownResult(true)
         }
     }
 
-    private fun setAnswerShownResult(answerShown : Boolean){
-        val data = Intent().apply {
-            putExtra(SHOWN_ANSWER, answerShown)
-        }
-
-        // Resultado da Activity
-        setResult(Activity.RESULT_OK, data)
-    }
 }
