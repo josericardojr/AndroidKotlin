@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Embaralhamento</string>
+    <string name="word_count">%d/10</string>
+    <string name="instructions">Monte a palavra usando todas as letras.</string>
+    <string name="skip">Pular</string>
+    <string name="submit">Submeter</string>
+    <string name="score">Pontos: %d</string>
+    <string name="enter_your_word">Digite a Palavra</string>
+    <string name="congratulations">Parabéns!</string>
+    <string name="you_scored">"Você pontuou: %d"</string>
+    <string name="exit">Sair</string>
+    <string name="play_again">Jogar Novamente</string>
+    <string name="wrong_guess">Chute Errado!</string>
+</resources>
