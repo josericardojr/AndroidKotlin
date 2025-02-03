@@ -1,6 +1,7 @@
 package com.josericardojr.guessnumber
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -27,18 +28,36 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.content.edit
+import androidx.lifecycle.lifecycleScope
 import com.josericardojr.guessnumber.ui.theme.GuessNumberTheme
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val onSave: (String) -> Unit = {
+            val sharedPref = getPreferences(MODE_PRIVATE)
+
+            sharedPref.edit (commit = true) {
+                putString("Name", it)
+            }
+        }
         enableEdgeToEdge()
         setContent {
             GuessNumberTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     GuessNumber(
-                        Modifier.padding(innerPadding)
+                        onSave = onSave,
+                        onRetrieve = {
+                            val sharedPref = getPreferences(MODE_PRIVATE)
+                            val name = sharedPref.getString("Name", "")
+                            Toast.makeText(this, name, Toast.LENGTH_SHORT).show()
+                        },
+                        modifier =  Modifier.padding(innerPadding)
                     )
                 }
             }
@@ -49,6 +68,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GuessNumber(
     modifier: Modifier = Modifier,
+    onSave: (String) -> Unit,
+    onRetrieve: () -> Unit
 ) {
     var targetNumber by remember { mutableStateOf(Random.nextInt(0, 100)) }
     var minNumber by remember { mutableStateOf("1") }
@@ -57,6 +78,8 @@ fun GuessNumber(
     var numTrials by remember { mutableStateOf(0) }
     var currentGuess by remember { mutableStateOf("0") }
     var currentMessage by remember { mutableStateOf("") }
+
+
 
     Column(
         verticalArrangement = Arrangement.Center,
@@ -136,6 +159,18 @@ fun GuessNumber(
             Text(text = "Guess")
         }
 
+        Button(
+            onClick = { onSave(currentGuess) }
+        ) {
+            Text(text = "Save")
+        }
+
+        Button(
+            onClick = onRetrieve
+        ) {
+            Text(text = "Retrieve")
+        }
+
         // Exibir mensagem de erro?
         if (showDialog) {
             AlertDialog(
@@ -164,6 +199,11 @@ fun GuessNumber(
 @Composable
 fun GuessNumberPreview() {
     GuessNumberTheme {
-        GuessNumber()
+        GuessNumber(
+            onSave = { it ->
+                Log.i("MainActivity", it)
+            },
+            onRetrieve = {}
+        )
     }
 }
