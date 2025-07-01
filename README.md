@@ -25,6 +25,15 @@ Esse é o nosso espaço para conversarmos, nos conhecermos e tirarmos dúvidas. 
 Sugestões de correções do projeto são muito bem vindas, devem ser apresentadas efetuando um fork do projeto e efetuando um pull request através do Github.
 
 
+## Exemplos e versões disponíveis
+
+| Exemplo                | Versão     | Link                                                                                                |
+|------------------------|------------|---------------------------------------------------------------------------------------------------- |
+| Jokenpo -    Jetpack   | v1         | [exemplo01-v1](https://github.com/josericardojr/AndroidKotlin/tree/Jokenpo-v1/Applications/Jokenpo) |
+|         -    ViewModel | v2         |                                                                                                     |
+
+
+
 Licença
 -------
 Copyright 2016 AndroidPro.
