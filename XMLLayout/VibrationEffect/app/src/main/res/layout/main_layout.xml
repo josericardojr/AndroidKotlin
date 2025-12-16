@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnClickVib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Click Vibration" />
+
+    <Button
+        android:id="@+id/btnCustomVibration"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Custom Vibation" />
+
+    <Button
+        android:id="@+id/btnRepeatedCustomVib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Start Loop Vibration" />
+</LinearLayout>
